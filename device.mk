@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 
-# This file includes all definitions that apply to ALL geefhd devices, and
-# are also specific to geefhd devices
+# This file includes all definitions that apply to ALL l05e devices, and
+# are also specific to l05e devices
 #
 # Everything in this directory will become public
 
@@ -27,23 +27,23 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 # currently contain all of the bitmaps at xhdpi density so
 # we do this little trick to fall back to the hdpi version
 # if the xhdpi doesn't exist.
-PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 PRODUCT_PACKAGES += \
-	lights.geefhd
+	lights.l05e
 
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/mixer_paths.xml:system/etc/mixer_paths.xml
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/thermald-geefhd.conf:system/etc/thermald.conf
+	$(LOCAL_PATH)/thermald-l05e.conf:system/etc/thermald.conf
 
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/initlogo.rle:root/initlogo.rle888 \
-	$(LOCAL_PATH)/init.geefhd.rc:root/init.geefhd.rc \
-	$(LOCAL_PATH)/fstab.geefhd:root/fstab.geefhd \
-	$(LOCAL_PATH)/ueventd.geefhd.rc:root/ueventd.geefhd.rc
+	$(LOCAL_PATH)/init.l05e.rc:root/init.l05e.rc \
+	$(LOCAL_PATH)/fstab.l05e:root/fstab.l05e \
+	$(LOCAL_PATH)/ueventd.l05e.rc:root/ueventd.l05e.rc
 
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
@@ -55,7 +55,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.sf.lcd_density=480
+	ro.sf.lcd_density=320
 
 PRODUCT_PACKAGES += \
 	hwaddrs
@@ -76,7 +76,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.default_network=9 \
 	telephony.lteOnGsmDevice=1
 
-$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
-$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
+$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-hwui-memory.mk)
 
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk)
